@@ -1,0 +1,26 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: weather-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: clothes_weather_db
+      repositories:
+        type: auto
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8764/auth/realms/cw-realm/protocol/openid-connect/certs
+webclient:
+  openweather:
+    url: http://api.openweathermap.org/data/2.5/weather
+    timeout: 10000
+    api-id: 3de47b6f682cbdcb1c121ae491e0371d
+springdoc:
+  swagger-ui:
+    servers:
+      weather-service: http://localhost:8010
