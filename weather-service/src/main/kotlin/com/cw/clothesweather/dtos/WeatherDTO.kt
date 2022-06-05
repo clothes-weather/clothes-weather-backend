@@ -1,3 +1,6 @@
 package com.cw.clothesweather.dtos
 
-data class WeatherDTO()
+data class WeatherDTO(
+    val temp: Double,
+    val feelsTemp: Double
+)

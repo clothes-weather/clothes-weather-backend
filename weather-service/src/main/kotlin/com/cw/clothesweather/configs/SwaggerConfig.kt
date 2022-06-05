@@ -16,7 +16,7 @@ class SwaggerConfig(@Value("\${springdoc.swagger-ui.servers.weather-service}") p
     fun api(): GroupedOpenApi {
         return GroupedOpenApi.builder()
             .group("weather-api")
-            .pathsToMatch("/public/**")
+            .pathsToMatch("/**")
             .build()
     }
 
