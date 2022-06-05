@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/weather")
 class SwaggerController(@Value("\${springdoc.swagger-ui.servers.weather-service}") private val weatherServiceUrl: String) {
     @GetMapping("/swagger")
     fun greeting(): String {

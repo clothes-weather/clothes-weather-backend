@@ -16,19 +16,19 @@ class WeatherController(
 ) {
 
     @GetMapping("/metrics")
-    @RolesAllowed("user_role")
+    @RolesAllowed("user")
     fun weatherMetrics(@RequestParam(defaultValue = "Москва") city: String): WeatherDTO? {
         return weatherService.getWeatherMetrics(city)
     }
 
     @PostMapping("/process-metrics")
-    @RolesAllowed("user_role")
+    @RolesAllowed("user")
     fun saveWeatherProcess(@RequestParam(defaultValue = "Москва") city: String): WeatherProcessDTO {
         return weatherService.saveWeatherMetrics(city)
     }
 
     @GetMapping("/test-auth")
-    @RolesAllowed("user_role")
+    @RolesAllowed("user")
     fun testAuth(principal: Principal): String {
         return "test auth, User Id: ${principal.name}"
     }
