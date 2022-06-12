@@ -10,10 +10,14 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
+        - id: clothes-service
+          uri: lb://clothes-service
+          predicates:
+            - Path=/api/v1/clothes/**
         - id: weather-service
           uri: lb://weather-service
           predicates:
-            - Path=/api/**
+            - Path=/api/v1/weather/**
       default-filters:
         - TokenRelay
   security:
@@ -26,7 +30,7 @@ spring:
           keycloak-spring-gateway-client:
             provider: cw-keycloak-provider
             client-id: spring-gateway
-            client-secret: 2gpJ3MQmBU0FsLnYA4nkY9aE2Mx4MJpR
+            client-secret: XOvKyKcG8T5KOYYk9wQQpiSmlxG2voS9
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
 management:

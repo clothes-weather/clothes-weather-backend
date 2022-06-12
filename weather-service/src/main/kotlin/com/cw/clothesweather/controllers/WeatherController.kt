@@ -16,7 +16,6 @@ class WeatherController(
 ) {
 
     @GetMapping("/metrics")
-    @RolesAllowed("user")
     fun weatherMetrics(@RequestParam(defaultValue = "Москва") city: String): WeatherDTO? {
         return weatherService.getWeatherMetrics(city)
     }

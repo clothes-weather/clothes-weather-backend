@@ -15,15 +15,15 @@ repositories {
 	mavenCentral()
 }
 
-extra["springCloudVersion"] = "2021.0.1"
+extra["springCloudVersion"] = "2021.0.3"
 
 dependencies {
-	implementation("org.springdoc:springdoc-openapi-ui:1.6.7")
-	implementation("org.springframework.kafka:spring-kafka:2.8.4")
-	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server:2.6.6")
+	implementation("org.springdoc:springdoc-openapi-ui:1.6.8")
+	implementation("org.springframework.kafka:spring-kafka")
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 	implementation("org.springframework.boot:spring-boot-configuration-processor")
-	implementation("org.springframework.boot:spring-boot-starter-webflux:2.6.6")
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 	implementation("org.springframework.boot:spring-boot-starter-web")
