@@ -19,6 +19,7 @@ extra["springCloudVersion"] = "2021.0.3"
 
 dependencies {
     implementation("org.springdoc:springdoc-openapi-ui:1.6.8")
+    implementation("org.flywaydb:flyway-core")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
