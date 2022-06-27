@@ -1,20 +1,44 @@
 package com.cw.clothesweather.controllers
 
+import com.cw.clothesweather.entity.Clothes
+import com.cw.clothesweather.services.ClothesService
 import io.swagger.v3.oas.annotations.tags.Tag
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
-import java.security.Principal
+import org.springframework.web.bind.annotation.*
 import javax.annotation.security.RolesAllowed
 
 @RestController
 @RequestMapping("/api/v1/clothes")
-@Tag(name = "ПОГОДНЫЙ API V1")
-class ClothesController {
+@Tag(name = "API ОДЕЖДЫ V1")
+class ClothesController(private val clothesService: ClothesService) {
 
-    @GetMapping("/test-auth")
+    @GetMapping
     @RolesAllowed("user")
-    fun testAuth(principal: Principal): String {
-        return "test auth, User Id: ${principal.name}"
+    fun getAll(): List<Clothes> {
+        return clothesService.getAllClothes()
+    }
+
+    @GetMapping("/{id}")
+    @RolesAllowed("user")
+    fun getClothes(@PathVariable("id") clothesId: Int): Clothes? {
+        return clothesService.getClothes(clothesId)
+    }
+
+    @PostMapping
+    @RolesAllowed("user")
+    fun addClothes(@RequestBody request: Clothes): Clothes {
+        return clothesService.addClothes(request)
+    }
+
+    @PutMapping("/{id}")
+    @RolesAllowed("user")
+    fun updateClothes(@PathVariable id: Int, @RequestBody request: Clothes): Clothes {
+        return clothesService.updateClothes(id, request)
+    }
+
+    @DeleteMapping
+    @RolesAllowed("user")
+    fun deleteClothes(@RequestParam ClothesId: Int): String {
+        clothesService.deleteClothes(ClothesId)
+        return "Одежда удалена"
     }
 }
